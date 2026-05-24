@@ -3,7 +3,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 .env
-.env.*
-!.env.example
 .DS_Store
 Thumbs.db

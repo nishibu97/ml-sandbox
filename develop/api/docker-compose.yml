@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      PORT: ${PORT}
+      LOG_LEVEL: ${LOG_LEVEL}
