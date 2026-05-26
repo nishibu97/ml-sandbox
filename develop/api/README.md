@@ -2,6 +2,9 @@
 
 FastAPI サーバー（uv / Python 3.14）
 
+このディレクトリは `develop/api/` 配下の **独立した uv プロジェクト**。  
+リポジトリ全体の Python 方針: [ルート README](../../README.md#python-環境uv)
+
 ## ローカル起動
 
 ```bash

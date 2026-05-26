@@ -1,0 +1,8 @@
+{
+  "python.venvPath": "${workspaceFolder}",
+  "python.venvFolders": [
+    "develop/api",
+    "research/20260526-Search-Tree"
+  ],
+  "python.terminal.activateEnvInCurrentTerminal": true
+}
