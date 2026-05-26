@@ -1,0 +1,9 @@
+[project]
+name = "search-tree"
+version = "0.1.0"
+description = "8-puzzle search tree experiments"
+requires-python = ">=3.14"
+dependencies = [
+    "ipykernel>=6.29",
+    "jupyterlab>=4.0",
+]
