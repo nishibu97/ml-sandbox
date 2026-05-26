@@ -41,10 +41,46 @@ def solve_sudoku(board: list[list[int]]) -> bool:
     ここに深さ優先探索（バックトラック法）のコアロジックを実装する。
     ※boardを直接書き換え、解けたらTrue、解けなければFalseを返す想定。
     """
-    # TODO: 実装（現在は骨組みのため、とりあえずTrueを返す）
-    # 探索木のバックトラック法を用いて再帰的に解を探す
-    
-    return True
+    def candidates(row: int, col: int) -> set[int]:
+        used = set(board[row])
+        used.update(board[r][col] for r in range(9))
+
+        box_row = (row // 3) * 3
+        box_col = (col // 3) * 3
+        for r in range(box_row, box_row + 3):
+            for c in range(box_col, box_col + 3):
+                used.add(board[r][c])
+
+        return set(range(1, 10)) - used
+
+    def find_next_cell() -> tuple[int, int, set[int]] | None:
+        best_cell: tuple[int, int, set[int]] | None = None
+
+        for row in range(9):
+            for col in range(9):
+                if board[row][col] != 0:
+                    continue
+
+                cell_candidates = candidates(row, col)
+                if not cell_candidates:
+                    return row, col, cell_candidates
+                if best_cell is None or len(cell_candidates) < len(best_cell[2]):
+                    best_cell = row, col, cell_candidates
+
+        return best_cell
+
+    next_cell = find_next_cell()
+    if next_cell is None:
+        return True
+
+    row, col, cell_candidates = next_cell
+    for value in sorted(cell_candidates):
+        board[row][col] = value
+        if solve_sudoku(board):
+            return True
+        board[row][col] = 0
+
+    return False
 
 def main():
     parser = argparse.ArgumentParser(description="Sudoku Solver Core Logic")
