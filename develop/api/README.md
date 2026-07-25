@@ -37,3 +37,24 @@ http://localhost:8000/docs
 ## 環境変数
 
 `.env.sample` を `.env` にコピーして設定する。
+
+## ディレクトリ構成（機能別垂直スライス）
+
+```text
+app/
+├── main.py
+├── core/                    # アプリケーション全体の共通設定
+│   ├── config.py
+│   └── exceptions.py
+├── clients/                 # 外部API通信（機能横断で共有）
+└── features/                # 機能ごとに独立
+    ├── health/
+    │   └── router.py
+    └── items/               # ベンチマーク用（大きな Pydantic レスポンス）
+        ├── router.py
+        ├── schemas.py
+        └── service.py
+```
+
+将来の AI 機能（例: `chat` / `analyze`）は `features/<name>/` 配下に
+`router.py` / `schemas.py` / `service.py` / `prompts.py` を揃えて追加する。
