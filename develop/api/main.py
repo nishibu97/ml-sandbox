@@ -1,8 +1,5 @@
-from fastapi import FastAPI
+"""uvicorn エントリ"""
 
-app = FastAPI()
+from app.main import app
 
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+__all__ = ["app"]

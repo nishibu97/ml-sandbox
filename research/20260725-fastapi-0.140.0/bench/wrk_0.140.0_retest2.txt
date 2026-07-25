@@ -1,0 +1,14 @@
+Running 30s test @ http://127.0.0.1:8000/deps
+  4 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   970.41ms   28.61ms   1.08s    71.25%
+    Req/Sec    10.27     10.48    40.00     89.45%
+  Latency Distribution
+     50%  976.99ms
+     75%  986.37ms
+     90%  997.98ms
+     99%    1.03s 
+  540 requests in 28.23s, 104.94KB read
+  Socket errors: connect 0, read 0, write 0, timeout 60
+Requests/sec:     19.13
+Transfer/sec:      3.72KB
