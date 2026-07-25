@@ -26,6 +26,8 @@ docker compose up -d --build
 ```bash
 curl http://localhost:8000/health
 # {"status":"ok"}
+
+curl http://localhost:8000/deps
 ```
 
 ## API仕様
@@ -50,10 +52,10 @@ app/
 └── features/                # 機能ごとに独立
     ├── health/
     │   └── router.py
-    └── items/               # ベンチマーク用（大きな Pydantic レスポンス）
+    └── deps/                # ベンチマーク用（ネストした Depends）
         ├── router.py
         ├── schemas.py
-        └── service.py
+        └── deps.py
 ```
 
 将来の AI 機能（例: `chat` / `analyze`）は `features/<name>/` 配下に
