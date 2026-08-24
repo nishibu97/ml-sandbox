@@ -1,8 +1,8 @@
 {
   "python.venvPath": "${workspaceFolder}",
   "python.venvFolders": [
-    "develop/api",
-    "research/20260526-Search-Tree"
+    "develop/api"
   ],
+  "python.defaultInterpreterPath": "${workspaceFolder}/develop/api/.venv/bin/python",
   "python.terminal.activateEnvInCurrentTerminal": true
 }

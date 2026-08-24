@@ -9,6 +9,26 @@
 | `develop/api/` | API サーバー | 3.14（`.python-version` 参照） |
 | `research/<YYYYMMDD-...>/` | 調査・実験ごと | 調査ディレクトリの `.python-version` 参照 |
 
+### venv の activate / deactivate
+
+`uv run` は activate 不要。シェルでそのプロジェクトの Python を使いたいときだけ、**作業中のディレクトリの `.venv`** を有効化する。
+
+```bash
+source .venv/bin/activate   # 有効化（プロンプトにプロジェクト名が出る）
+deactivate                  # 解除
+```
+
+例（API）:
+
+```bash
+cd develop/api
+source .venv/bin/activate
+# ...
+deactivate
+```
+
+別プロジェクトの venv を入れたまま `uv add` / `uv sync` すると、`VIRTUAL_ENV` がプロジェクトの `.venv` と一致せず warning が出る。プロジェクトを切り替える前に `deactivate` する。
+
 ### develop/api
 
 ```bash
